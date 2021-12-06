@@ -5,26 +5,26 @@ let prevSum = 0;
 let count = 0;
 
 function countMeasures(measurements: string[]) {
-    for(const measure of measurements) {
-        cur = parseInt(measure);
+	for (const measure of measurements) {
+		cur = parseInt(measure);
 
-        prevArray.push(cur);
-        
-        if(prevArray.length > 3) {
-            prevArray.shift();
-            curSum = 0;
-            for(const num of prevArray) {
-                curSum += num;
-            }
-        }
+		prevArray.push(cur);
 
-        if(curSum > prevSum) {
-            count++;
-        }
+		if (prevArray.length > 3) {
+			prevArray.shift();
+			curSum = 0;
+			for (const num of prevArray) {
+				curSum += num;
+			}
+		}
 
-        prevSum = curSum;
-    }
-    console.log(count);
+		if (curSum > prevSum) {
+			count++;
+		}
+
+		prevSum = curSum;
+	}
+	console.log(count);
 }
 
 const text = Deno.readTextFileSync('input.txt');
